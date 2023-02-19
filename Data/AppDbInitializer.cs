@@ -10,7 +10,9 @@ namespace eTickets.Data
             using (var serviceScope = applicationBuilder.ApplicationServices.CreateScope())
             {
                 var context = serviceScope.ServiceProvider.GetService<AppDbContext>();
+
                 context.Database.EnsureCreated();
+
                 //Cinema
                 if (!context.Cinemas.Any())
                 {
@@ -48,7 +50,6 @@ namespace eTickets.Data
                         },
                     });
                     context.SaveChanges();
-
                 }
                 //Actors
                 if (!context.Actors.Any())
@@ -88,7 +89,6 @@ namespace eTickets.Data
                         }
                     });
                     context.SaveChanges();
-
                 }
                 //Producers
                 if (!context.Producers.Any())
@@ -128,7 +128,6 @@ namespace eTickets.Data
                         }
                     });
                     context.SaveChanges();
-
                 }
                 //Movies
                 if (!context.Movies.Any())
@@ -209,7 +208,6 @@ namespace eTickets.Data
                         }
                     });
                     context.SaveChanges();
-
                 }
                 //Actors & Movies
                 if (!context.Actors_Movies.Any())
@@ -311,10 +309,11 @@ namespace eTickets.Data
                         },
                     });
                     context.SaveChanges();
-
                 }
-
             }
+
         }
+
+        
     }
 }
